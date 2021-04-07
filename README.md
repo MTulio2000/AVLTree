@@ -13,10 +13,9 @@ Adding a new element is very easy, you can add it like this:
 
 ``` C++
 tree->add(/*Number*/ 10);
+tree->remove(/*Number*/ 10);
 ```
 
 ### For the future
 
-> My first change is about the removal option, because if you can add you can also remove
-
-> Then, I'll try to develop the balance function without recursion
+> I'll try to develop the balance function without recursion
