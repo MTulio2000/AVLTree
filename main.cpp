@@ -20,11 +20,11 @@ int main()
 {
     AVLTree *avl = new AVLTree;
     srand(time(NULL));
-    for(int i = 0; i < 10;)
-    {
-        if(avl->add(rand()%100))
-            i++;
-    }
+    for(int i = 0; i < 10;i++)
+        avl->add(i);
+    print(avl->getBegin());
+    avl->remove(3);
+    cout << "#########################"<<endl;
     print(avl->getBegin());
     return 0;
 }

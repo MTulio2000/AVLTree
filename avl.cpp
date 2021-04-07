@@ -113,3 +113,36 @@ AVLNode* AVLTree::getBegin() const
 {
     return this->begin;
 }
+
+void AVLTree::remove(int v)
+{
+    AVLNode *aux,*node = this->begin;
+    Direction dir;
+    while(node)
+    {
+        if(node->value==v)
+        {
+            if(node == begin)
+                begin = node->subtree[RIGHT];
+            if(node->father)
+                node->father->subtree[dir] = node->subtree[RIGHT];
+            aux = node->subtree[RIGHT];
+            while(aux->subtree[LEFT])
+                aux = aux->subtree[LEFT];
+            aux->subtree[LEFT] = node->subtree[LEFT];
+            node->subtree[LEFT]->father = aux;
+            node->subtree[RIGHT]->father = node->father;
+            cout << node->subtree[RIGHT]->value<<endl;
+            aux = node->subtree[LEFT];
+            while(aux->father)
+            {
+                aux = aux->father;
+                balance(aux);
+            }
+            delete node;
+            break;
+        }
+        dir = (node->value<v)?RIGHT:LEFT;
+        node = node->subtree[dir];
+    }
+}
