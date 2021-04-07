@@ -9,7 +9,7 @@ To use this code you have to create a new AVLTree object, see below:
 AVLTree *tree = new AVLTree();
 ```
 
-Add/Remove a new element is very easy, you can add it like this:
+Adding/removing a new element is very easy, you can do it like this:
 
 ``` C++
 tree->add(/*Number*/ 10);
